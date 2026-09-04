@@ -5,7 +5,7 @@ import { inBrowser, useData, useRoute, withBase } from 'vitepress'
 import PageRedirect from './PageRedirect.vue'
 import ImageViewer from './ImageViewer.vue'
 import FeedbackWidget from './FeedbackWidget.vue'
-import { getVersionLabels, getVersionNames } from '../site.config.mjs'
+import { getVersionEntryPath, getVersionLabels, getVersionNames, getVersionUrl } from '../site.config.mjs'
 
 const { frontmatter } = useData()
 const route = useRoute()
@@ -62,10 +62,7 @@ function injectVersionSwitcher() {
       e.preventDefault()
       e.stopPropagation()
       const ver = (item as HTMLElement).dataset.version!
-      if (ver !== current) {
-        const newPath = location.pathname.replace(`/en/${current}/`, `/en/${ver}/`)
-        window.location.replace(newPath)
-      }
+      window.location.replace(getVersionUrl(ver, getVersionEntryPath(ver)))
       menu.style.display = 'none'
     })
   })

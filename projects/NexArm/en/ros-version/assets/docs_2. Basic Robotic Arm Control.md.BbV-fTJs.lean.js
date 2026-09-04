@@ -1,0 +1,24 @@
+import { _ as _export_sfc, o as openBlock, c as createElementBlock, ak as createStaticVNode } from "./chunks/framework.lJuzg7kk.js";
+const _imports_0 = "/projects/NexArm/en/ros-version/assets/image1.CE6m7VWE.webp";
+const _imports_1 = "data:image/png;base64,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";
+const _imports_2 = "/projects/NexArm/en/ros-version/assets/image3.DJn_Hx_v.webp";
+const _imports_3 = "/projects/NexArm/en/ros-version/assets/image4.1xh9Bvo5.webp";
+const _imports_4 = "/projects/NexArm/en/ros-version/assets/image5.DnT6zdmc.webp";
+const _imports_5 = "/projects/NexArm/en/ros-version/assets/image6.qMNsEQkQ.webp";
+const _imports_6 = "/projects/NexArm/en/ros-version/assets/image7.DLU2nxR1.webp";
+const _imports_7 = "/projects/NexArm/en/ros-version/assets/image1.BjNkZqVx.webp";
+const _imports_8 = "/projects/NexArm/en/ros-version/assets/image2.C31awVsd.webp";
+const _imports_9 = "/projects/NexArm/en/ros-version/assets/image3.tyV3ufg3.webp";
+const _imports_10 = "/projects/NexArm/en/ros-version/assets/image4.DmV1WJ2-.webp";
+const __pageData = JSON.parse('{"title":"2. Basic Robotic Arm Control","description":"","frontmatter":{},"headers":[],"relativePath":"docs/2. Basic Robotic Arm Control.md","filePath":"docs/2. Basic Robotic Arm Control.md"}');
+const _sfc_main = { name: "docs/2. Basic Robotic Arm Control.md" };
+function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("div", null, [..._cache[0] || (_cache[0] = [
+    createStaticVNode("", 152)
+  ])]);
+}
+const _2__Basic_Robotic_Arm_Control = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", _sfc_render]]);
+export {
+  __pageData,
+  _2__Basic_Robotic_Arm_Control as default
+};
