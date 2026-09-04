@@ -2,17 +2,17 @@
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "dev:latest": "node scripts/dev_version.mjs latest",
-    "dev:ros-version": "node scripts/dev_version.mjs ros-version",
-    "dev:imitation-learning-version": "node scripts/dev_version.mjs imitation-learning-version",
     "dev:esp32-version": "node scripts/dev_version.mjs esp32-version",
+    "dev:imitation-learning-version": "node scripts/dev_version.mjs imitation-learning-version",
+    "dev:ros-version": "node scripts/dev_version.mjs ros-version",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "docs:stage-main": "node scripts/stage_main_site.mjs",
     "build:latest": "node scripts/build_version.mjs latest",
-    "build:ros-version": "node scripts/build_version.mjs ros-version",
-    "build:imitation-learning-version": "node scripts/build_version.mjs imitation-learning-version",
     "build:esp32-version": "node scripts/build_version.mjs esp32-version",
-    "build:all": "node scripts/build_version.mjs latest && node scripts/build_version.mjs ros-version && node scripts/build_version.mjs imitation-learning-version && node scripts/build_version.mjs esp32-version"
+    "build:imitation-learning-version": "node scripts/build_version.mjs imitation-learning-version",
+    "build:ros-version": "node scripts/build_version.mjs ros-version",
+    "build:all": "node scripts/build_version.mjs latest && node scripts/build_version.mjs esp32-version && node scripts/build_version.mjs imitation-learning-version && node scripts/build_version.mjs ros-version"
   },
   "dependencies": {
     "vitepress": "^1.6.4"
