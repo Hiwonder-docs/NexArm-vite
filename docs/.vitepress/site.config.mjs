@@ -19,7 +19,7 @@ export const versionDefinitions = [
   },
   {
     version: 'ros-version',
-    label: 'ROS Version',
+    label: 'Raspberry Pi',
     entryPath: '/docs/1. NexArm User Manual.html'
   }
 ]
