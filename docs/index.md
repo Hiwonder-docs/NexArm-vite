@@ -1,6 +1,6 @@
 ---
 layout: page-redirect
-redirectTo: /docs/index.html
+redirectTo: /docs/1. NexArm User Manual.html
 ---
 
-Redirecting to content page...
+正在跳转到内容页面...
