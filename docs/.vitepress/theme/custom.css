@@ -298,14 +298,14 @@
 }
 
 /* Version Switcher Styles */
-.VPNavBarMenu .version-switcher {
+.version-switcher {
   position: relative;
   display: inline-flex;
   align-items: center;
   gap: 8px;
 }
 
-.VPNavBarMenu .version-switcher::after {
+.version-switcher::after {
   content: '';
   display: inline-block;
   margin-left: 8px;
@@ -315,50 +315,51 @@
   background-color: var(--vp-c-divider);
 }
 
-.VPNavBarMenu .version-switcher__label {
+.version-switcher__label {
   color: var(--vp-c-text-1);
   font-weight: 500;
   font-size: 14px;
 }
 
-.VPNavBarMenu .version-switcher__trigger {
-  display: inline-flex;
-  align-items: center;
-  padding: 5px 14px;
-  border-radius: 8px;
-  border: 1px solid var(--vp-c-border);
-  background: var(--vp-c-bg);
-  color: var(--vp-c-text-1);
-  font-size: 14px;
-  cursor: pointer;
-  transition: border-color 0.2s ease;
-  white-space: nowrap;
+.version-switcher__trigger {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--vp-c-border);
+    background: var(--vp-c-bg);
+    color: var(--vp-c-text-1);
+    font-size: 14px;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+    white-space: nowrap;
 }
 
-.VPNavBarMenu .version-switcher__trigger:hover {
+.version-switcher__trigger:hover {
   border-color: #F29401;
 }
 
-.VPNavBarMenu .version-switcher__name {
+.version-switcher__name {
   color: #F29401;
   font-weight: 700;
 }
 
-.VPNavBarMenu .version-switcher__menu {
+.version-switcher__menu {
   position: absolute;
-  top: calc(100% - 8px);
+  top: calc(100% + 8px);
   left: 0;
-  min-width: 180px;
+  min-width: 240px;
   margin: 0;
   padding: 6px 0;
   list-style: none;
-  background: #F6F6F7;
+  background: var(--vp-c-bg-elv);
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   z-index: 100;
 }
 
-.VPNavBarMenu .version-switcher__item {
+.version-switcher__item a {
+  display: block;
   padding: 8px 16px;
   font-size: 14px;
   color: var(--vp-c-text-1);
@@ -366,14 +367,72 @@
   transition: background-color 0.15s ease;
 }
 
-.VPNavBarMenu .version-switcher__item:hover {
+.version-switcher__item:hover {
   background: rgba(242, 148, 1, 0.15);
 }
 
-.VPNavBarMenu .version-switcher__item.is-selected {
+.version-switcher__item.is-selected,
+.version-switcher__item.is-selected a {
   background: #F29401;
   color: #fff;
   font-weight: 600;
+}
+
+.version-switcher-list {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.version-switcher__trigger .vpi-chevron-down {
+  margin-left: 8px;
+  font-size: 12px;
+  transition: transform 0.2s ease;
+}
+
+.version-switcher__trigger[aria-expanded="true"] .vpi-chevron-down {
+  transform: rotate(180deg);
+}
+
+.version-switcher__trigger:focus-visible,
+.version-switcher__item a:focus-visible {
+  outline: 2px solid #F29401;
+  outline-offset: 2px;
+}
+
+.version-switcher-list.is-mobile {
+  display: block;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+
+.is-mobile .version-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+
+.is-mobile .version-switcher::after {
+  display: none;
+}
+
+.is-mobile .version-switcher__trigger {
+  min-height: 44px;
+}
+
+.is-mobile .version-switcher__menu {
+  position: static;
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+.is-mobile .version-switcher__item a {
+  padding: 10px 16px;
+  min-height: 44px;
 }
 
 .vp-doc .doc-variant-switcher {

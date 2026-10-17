@@ -777,6 +777,7 @@ export default defineConfig({
       }
     },
     nav: [
+      { component: 'VersionSwitcher' },
       { text: 'Home', link: 'https://www.hiwonder.net/', target: '_self' },
     ],
     sidebar: getSidebar()

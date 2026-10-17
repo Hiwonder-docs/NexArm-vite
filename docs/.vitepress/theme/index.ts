@@ -3,6 +3,8 @@ import { defineComponent, h, nextTick, onBeforeUnmount, onMounted, watch } from 
 import { useData, useRoute } from 'vitepress'
 import './custom.css'
 import Layout from './Layout.vue'
+import VersionSwitcher from './VersionSwitcher.vue'
+import KitVersionGuide from './KitVersionGuide.vue'
 
 function collectLockedLinks(items: any[], links = new Set<string>()) {
   for (const item of items || []) {
@@ -102,6 +104,10 @@ const LockedSidebarMarker = defineComponent({
 
 export default {
   ...DefaultTheme,
+  enhanceApp({ app }) {
+    app.component('VersionSwitcher', VersionSwitcher)
+    app.component('KitVersionGuide', KitVersionGuide)
+  },
   Layout: () => h(Layout, null, { 'layout-bottom': () => h(LockedSidebarMarker) }),
 }
 

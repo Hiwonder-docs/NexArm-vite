@@ -5,13 +5,12 @@ import { inBrowser, useData, useRoute, withBase } from 'vitepress'
 import PageRedirect from './PageRedirect.vue'
 import ImageViewer from './ImageViewer.vue'
 import FeedbackWidget from './FeedbackWidget.vue'
-import { getVersionEntryPath, getVersionLabels, getVersionNames, getVersionUrl } from '../site.config.mjs'
+import { getVersionNames } from '../site.config.mjs'
 
 const { frontmatter } = useData()
 const route = useRoute()
 
 const ALL_VERSIONS = getVersionNames()
-const VERSION_LABELS: Record<string, string> = getVersionLabels()
 
 function detectCurrentVersion(): string {
   if (!inBrowser) return ALL_VERSIONS[0]
@@ -19,55 +18,6 @@ function detectCurrentVersion(): string {
     if (location.pathname.includes(`/en/${v}/`)) return v
   }
   return ALL_VERSIONS[0]
-}
-
-function injectVersionSwitcher() {
-  if (!inBrowser) return
-  const navList = document.querySelector('.VPNavBarMenu')
-  if (!navList) return
-  if (navList.querySelector('.version-switcher')) return
-
-  const current = detectCurrentVersion()
-
-  const li = document.createElement('li')
-  li.className = 'version-switcher'
-  const itemsHtml = ALL_VERSIONS
-    .map(v => `<li class="version-switcher__item ${current === v ? 'is-selected' : ''}" data-version="${v}">${VERSION_LABELS[v]}</li>`)
-    .join('')
-
-  li.innerHTML = `
-    <span class="version-switcher__label">Version</span>
-    <button type="button" class="version-switcher__trigger">
-      <span class="version-switcher__name">${VERSION_LABELS[current]}</span>
-    </button>
-    <ul class="version-switcher__menu" style="display:none">
-      ${itemsHtml}
-    </ul>
-  `
-
-  const trigger = li.querySelector('.version-switcher__trigger') as HTMLButtonElement
-  const menu = li.querySelector('.version-switcher__menu') as HTMLElement
-
-  trigger.addEventListener('click', (e) => {
-    e.stopPropagation()
-    menu.style.display = menu.style.display === 'none' ? 'block' : 'none'
-  })
-
-  document.addEventListener('click', (e) => {
-    if (!li.contains(e.target as Node)) menu.style.display = 'none'
-  })
-
-  li.querySelectorAll('.version-switcher__item').forEach(item => {
-    item.addEventListener('click', (e) => {
-      e.preventDefault()
-      e.stopPropagation()
-      const ver = (item as HTMLElement).dataset.version!
-      window.location.replace(getVersionUrl(ver, getVersionEntryPath(ver)))
-      menu.style.display = 'none'
-    })
-  })
-
-  navList.insertBefore(li, navList.firstChild)
 }
 
 function interceptCrossVersionLinks() {
@@ -1084,7 +1034,6 @@ onMounted(() => {
   document.addEventListener('click', handleLightboxDocumentClick)
   document.addEventListener('keydown', handleLightboxDocumentKeydown)
   patchLogoLink()
-  injectVersionSwitcher()
   interceptCrossVersionLinks()
   scheduleImageEnhancement()
   scheduleModuleEnhancement()
@@ -1098,7 +1047,6 @@ watch(
     resetLazyImageRuntime(getDocRoot())
     await nextTick()
     patchLogoLink()
-    injectVersionSwitcher()
     scheduleImageEnhancement()
     scheduleModuleEnhancement()
   }

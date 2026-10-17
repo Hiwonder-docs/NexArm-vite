@@ -5,22 +5,32 @@ export const versionDefinitions = [
   {
     version: 'latest',
     label: 'Latest',
+    selectable: false,
     entryPath: '/docs/1_NexArm_Tutorial.html'
   },
   {
     version: 'esp32-version',
     label: 'ESP32 Version',
+    description: 'ESP32 setup, motion & AI vision',
     entryPath: '/docs/1_Getting_Started_NexArm.html'
   },
   {
     version: 'imitation-learning-version',
     label: 'Imitation Learning Version',
+    description: 'Getting started & imitation learning',
     entryPath: '/docs/1_Getting_Started_NexArm.html'
   },
   {
     version: 'ros-version',
     label: 'Raspberry Pi',
+    description: 'Raspberry Pi, ROS & vision courses',
     entryPath: '/docs/1. NexArm User Manual.html'
+  },
+  {
+    version: 'jetsonNano',
+    label: 'Jetson Nano Version',
+    description: 'Jetson Nano, ROS & AI vision courses',
+    entryPath: '/'
   }
 ]
 
@@ -52,4 +62,9 @@ export function getVersionUrl(version = defaultVersion, path = '') {
   const base = getVersionBase(version)
   const normalizedPath = String(path).replace(/^\/+/, '')
   return encodeURI(`${base}${normalizedPath}`)
+}
+
+// Customer-facing versions shared by the dialog and navigation menu.
+export function getSelectableVersions() {
+  return versionDefinitions.filter((item) => item.selectable !== false)
 }
