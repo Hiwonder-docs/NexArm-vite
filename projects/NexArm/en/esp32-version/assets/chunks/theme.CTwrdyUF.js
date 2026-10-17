@@ -3635,7 +3635,7 @@ const versionDefinitions = [
   },
   {
     version: "ros-version",
-    label: "Raspberry Pi",
+    label: "Raspberry Pi Version",
     description: "Raspberry Pi, ROS & vision courses",
     entryPath: "/docs/1. NexArm User Manual.html"
   },
